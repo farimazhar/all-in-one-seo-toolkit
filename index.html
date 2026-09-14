@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All-in-One SEO Toolkit - by Fari Mazhar</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box} body{font-family:system-ui;background:#f8fafc;color:#0f172a}
+header{background:#0f172a;color:white;padding:40px 20px;text-align:center}
+header h1{font-size:42px} header p{opacity:.8;margin-top:10px}
+.grid{max-width:1200px;margin:40px auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;padding:0 20px}
+.card{background:white;padding:25px;border-radius:16px;box-shadow:0 4px 10px rgba(0,0,0,.05);border:1px solid #e2e8f0}
+.card h3{margin-bottom:15px} input,textarea{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;margin:8px 0}
+button{width:100%;padding:12px;background:#0f172a;color:white;border:none;border-radius:8px;cursor:pointer;margin-top:8px;font-weight:bold}
+button:hover{background:#1e293b} .out{background:#f1f5f9;padding:12px;border-radius:8px;margin-top:10px;min-height:40px;font-size:14px;word-break:break-all}
+footer{text-align:center;padding:40px;opacity:.6}
+</style>
+</head>
+<body>
+<header>
+<h1>🚀 All-in-One SEO Toolkit</h1>
+<p>10+ Free SEO Tools in One Place - Built by Fari Mazhar</p>
+<p style="margin-top:15px"><span style="background:white;color:black;padding:5px 15px;border-radius:20px;font-size:13px">⭐ Star this repo if you like it</span></p>
+</header>
+
+<div class="grid">
+<!-- Tool 1 -->
+<div class="card"><h3>1. Meta Tag Generator</h3><input id="t1_title" placeholder="Page Title"><textarea id="t1_desc" placeholder="Description"></textarea><button onclick="genMeta()">Generate Meta Tags</button><div id="o1" class="out">Output here...</div></div>
+<!-- Tool 2 -->
+<div class="card"><h3>2. Word Counter</h3><textarea id="t2" placeholder="Paste text..." oninput="countW()"></textarea><div id="o2" class="out">Words: 0 | Chars: 0</div></div>
+<!-- Tool 3 -->
+<div class="card"><h3>3. Case Converter</h3><textarea id="t3" placeholder="hello world"></textarea><button onclick="document.getElementById('t3').value=document.getElementById('t3').value.toUpperCase()">UPPERCASE</button><button onclick="document.getElementById('t3').value=document.getElementById('t3').value.toLowerCase()">lowercase</button></div>
+<!-- Tool 4 -->
+<div class="card"><h3>4. Robots.txt Generator</h3><input id="t4" placeholder="Sitemap URL: https://example.com/sitemap.xml"><button onclick="genRobots()">Generate</button><div id="o4" class="out">User-agent: *<br>Allow: /</div></div>
+<!-- Tool 5 -->
+<div class="card"><h3>5. QR Code Generator</h3><input id="t5" placeholder="Enter URL / Text"><button onclick="genQR()">Generate QR</button><div id="o5" class="out" style="text-align:center"><img id="qrimg" style="max-width:150px"></div></div>
+<!-- Tool 6 -->
+<div class="card"><h3>6. URL Encoder / Decoder</h3><input id="t6" placeholder="https://example.com/test?a=hello world"><button onclick="enc()">Encode</button><button onclick="dec()">Decode</button><div id="o6" class="out"></div></div>
+</div>
+
+<footer>Built with ❤️ by Fari Mazhar | 2026 | Open Source</footer>
+
+<script>
+function genMeta(){let t=document.getElementById('t1_title').value, d=document.getElementById('t1_desc').value; document.getElementById('o1').innerHTML=`&lt;title&gt;${t}&lt;/title&gt;<br>&lt;meta name="description" content="${d}"&gt;`}
+function countW(){let t=document.getElementById('t2').value; let w=t.trim()?t.trim().split(/\s+/).length:0; document.getElementById('o2').innerHTML=`Words: ${w} | Chars: ${t.length}`;}
+function genRobots(){let s=document.getElementById('t4').value||'https://example.com/sitemap.xml'; document.getElementById('o4').innerHTML=`User-agent: *<br>Allow: /<br><br>Sitemap: ${s}`}
+function genQR(){let v=document.getElementById('t5').value; if(!v)return; document.getElementById('qrimg').src=`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(v)}`}
+function enc(){let v=document.getElementById('t6').value; document.getElementById('o6').innerText=encodeURIComponent(v)} 
+function dec(){let v=document.getElementById('t6').value; document.getElementById('o6').innerText=decodeURIComponent(v)}
+</script>
+</body>
+</html>
